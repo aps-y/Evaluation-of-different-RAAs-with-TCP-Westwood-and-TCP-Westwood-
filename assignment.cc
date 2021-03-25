@@ -123,7 +123,7 @@ main (int argc, char *argv[])
   uint32_t nCsma = 3;
 
   //Number of STA(Stations)
-  uint32_t nWifi = 3;
+  uint32_t nWifi = 10;
 
   bool tracing = false;
   uint32_t maxBytes = 0;
@@ -149,7 +149,8 @@ main (int argc, char *argv[])
   cmd.AddValue ("nWifi", "Number of wifi STA devices", nWifi);
   cmd.AddValue ("verbose", "Tell echo applications to log if true", verbose);
   cmd.AddValue ("tracing", "Enable pcap tracing", tracing);
-  cmd.AddValue ("raa", "MinstrelHt / ConstantRate / Ideal", raaAlgo);
+  cmd.AddValue ("raa", "Arf/ Aarf/ Aarfcd/ Onoe/ Minstrel", raaAlgo);
+  cmd.AddValue ("tcp", "TcpWestwood / TcpWestwoodPlus", transport_prot);
   cmd.AddValue ("maxBytes", "Max number of Bytes to be sent", maxBytes);
   cmd.AddValue ("p2pRate", "Mbps", p2pRate);
   cmd.AddValue ("p2pDelay", "MilliSeconds", p2pDelay);
@@ -161,12 +162,11 @@ main (int argc, char *argv[])
   std::string raa_name = raaAlgo;
   raaAlgo = "ns3::" + raaAlgo + "WifiManager";
 
-  transport_prot = std::string ("ns3::") + transport_prot;
-
   //Store values of Throughput and delay in respective files for plotting graph
-  delayStream.open ("Delay_" + raa_name + "_" + std::to_string (nWifi) + ".csv");
-  throughputStream.open ("Throughput_" + raa_name + "_" + std::to_string (nWifi) + ".csv");
+  delayStream.open ("Delay_" + raa_name + "_" + transport_prot + "_" + std::to_string (nWifi) + ".csv");
+  throughputStream.open ("Throughput_" + raa_name + "_" + transport_prot + "_" + std::to_string (nWifi) + ".csv");
 
+  transport_prot = std::string ("ns3::") + transport_prot;
   // The underlying restriction of 18 is due to the grid position
   // allocator's configuration; the grid layout will exceed the
   // bounding box if more than 18 nodes are provided.
@@ -234,7 +234,7 @@ main (int argc, char *argv[])
   WifiHelper wifi;
 
   //Setting Wifi Standard
-  wifi.SetStandard (WIFI_STANDARD_80211ac);
+  wifi.SetStandard (WIFI_STANDARD_80211g);
 
   //Setting Raa Algorithm
   wifi.SetRemoteStationManager (raaAlgo);
