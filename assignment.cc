@@ -161,6 +161,8 @@ main (int argc, char *argv[])
   std::string raa_name = raaAlgo;
   raaAlgo = "ns3::" + raaAlgo + "WifiManager";
 
+  transport_prot = std::string ("ns3::") + transport_prot;
+
   //Store values of Throughput and delay in respective files for plotting graph
   delayStream.open ("Delay_" + raa_name + "_" + std::to_string (nWifi) + ".csv");
   throughputStream.open ("Throughput_" + raa_name + "_" + std::to_string (nWifi) + ".csv");
