@@ -6,12 +6,6 @@ import numpy as np
 import pandas as pd
 import os
 
-
-# %%
-raas = ["Arf", "Aarf","Aarfcd", "Onoe", "Minstrel"]
-tcps = ["TcpWestwood","TcpWestwoodPlus"]
-
-
 # %%
 def plotGraph(raa,tcp,nWifi):
     throughputPath = "../Throughput_" + raa + "_" + tcp + "_" + str(nWifi) + ".csv"
@@ -50,6 +44,8 @@ def plotGraph(raa,tcp,nWifi):
 
 
 # %%
+raas = ["Arf", "Aarf","Aarfcd", "Onoe", "Minstrel"]
+tcps = ["TcpWestwood","TcpWestwoodPlus"]
 for nWifi in range(1,11):
     for raaNum in range(0,5):
         plotGraph(raas[raaNum],tcps[0],nWifi)
