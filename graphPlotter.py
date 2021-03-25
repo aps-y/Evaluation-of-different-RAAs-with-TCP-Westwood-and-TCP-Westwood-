@@ -39,8 +39,8 @@ def plotGraph(raa,tcp,nWifi):
     plt.ylabel("Delay (seconds)")
     plt.title(raa)
     plt.savefig(pathToResultDelay+raa+".png")
-    
     plt.close()
+    
     plt.plot(time,thrputs)
     plt.xlabel("Time (seconds)")
     plt.ylabel("Throughput (Mb/s)")
