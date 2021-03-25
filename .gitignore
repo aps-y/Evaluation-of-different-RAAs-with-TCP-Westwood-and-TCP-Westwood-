@@ -3,3 +3,4 @@
 !.gitignore
 !assignment.cc
 !runExperiments.sh
+!graphPlotter.py
