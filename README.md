@@ -1,6 +1,6 @@
 # Evaluation of different RAAs with TCP Westwood and TCP Westwood+
 
-### Files included 
+## Files included 
 
 1. **assignment.cc** - the testbed for the evaluation
     * The file contains the testbed that is used for the evaluation
@@ -14,3 +14,9 @@
 2. **graphPlotter.py** - script to generate graphs of throughput and delay from results obtained 
     * The testbed evaluates avg Throughput and avg Delay for the whole network in intervals of 0.2 seconds the graphPlotter script uses the data to plot graphs
 3. **runExperiments.sh** - shell script to run tests by varying number of wifi nodes from 1 to 10 and using the above mentioned RAAs along with TCP Westwood and TCP Westwood+ then plot the graphs for the results obtained.
+
+## Avg_Delay graph 
+[Avg_Delay Graph][https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/average_delay_all.png]
+
+## Avg_Throughput graph
+[Avg_Throughput Graph][https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/average_throughput_all.png]
