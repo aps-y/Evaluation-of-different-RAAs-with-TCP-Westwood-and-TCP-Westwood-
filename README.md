@@ -16,7 +16,7 @@
 3. **runExperiments.sh** - shell script to run tests by varying number of wifi nodes from 1 to 10 and using the above mentioned RAAs along with TCP Westwood and TCP Westwood+ then plot the graphs for the results obtained.
 
 ## Avg_Delay graph 
-![Avg_Delay Graph][https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/average_delay_all.png]
+![Avg_Delay Graph](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/average_delay_all.png)
 
 ## Avg_Throughput graph
-![Avg_Throughput Graph][https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/average_throughput_all.png]
+![Avg_Throughput Graph](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/average_throughput_all.png)
