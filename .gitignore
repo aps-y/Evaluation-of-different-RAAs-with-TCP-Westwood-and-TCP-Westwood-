@@ -2,5 +2,6 @@
 /*
 !.gitignore
 !assignment.cc
+!assignment2.cc
 !runExperiments.sh
 !graphPlotter.py
