@@ -120,6 +120,7 @@ int
 main (int argc, char *argv[])
 {
   bool verbose = true;
+  bool logAverages=false;
 
   //Number of STA(Stations)
   uint32_t nWifi = 10;
@@ -144,6 +145,7 @@ main (int argc, char *argv[])
   CommandLine cmd (__FILE__);
   cmd.AddValue ("nWifi", "Number of wifi STA devices", nWifi);
   cmd.AddValue ("verbose", "Tell echo applications to log if true", verbose);
+  cmd.AddValue ("logAverages", "write averages into a file if true", logAverages); //Use this only along with runExperiments.sh
   cmd.AddValue ("tracing", "Enable pcap tracing", tracing);
   cmd.AddValue ("raa", "Arf/ Aarf/ Aarfcd/ Onoe/ Minstrel", raaAlgo);
   cmd.AddValue ("tcp", "TcpWestwood / TcpWestwoodPlus", transport_prot);
@@ -160,6 +162,7 @@ main (int argc, char *argv[])
   delayStream.open ("Delay_" + raa_name + "_" + transport_prot + "_" + std::to_string (nWifi) + ".csv");
   throughputStream.open ("Throughput_" + raa_name + "_" + transport_prot + "_" + std::to_string (nWifi) + ".csv");
 
+  std::string tcp_name=transport_prot;
   transport_prot = std::string ("ns3::") + transport_prot;
   // The underlying restriction of 18 is due to the grid position
   // allocator's configuration; the grid layout will exceed the
@@ -398,6 +401,17 @@ main (int argc, char *argv[])
   std::cout << "Average Throughput: " << (sink1->GetTotalRx ()+sink2->GetTotalRx ()) * 8.0 / (4 * 1024 * 1024) << " Mbps"
             << std::endl;
   std::cout << "Average Delay: " << averageDelay << "ms" << std::endl;
+
+  if(logAverages)
+  {
+    std::ofstream outfile;
+    outfile.open("averages.txt", std::ios_base::app); // append instead of overwrite
+    outfile << nWifi << " " << tcp_name << " " << raa_name << std::endl;
+    outfile << "Average Throughput: " << sink1->GetTotalRx () * 8.0 / (4 * 1024 * 1024) << " Mbps"
+            << std::endl;
+    outfile << "Average Delay: " << averageDelay << "ms" << std::endl; 
+    outfile.close();
+  }
 
   return 0;
 }

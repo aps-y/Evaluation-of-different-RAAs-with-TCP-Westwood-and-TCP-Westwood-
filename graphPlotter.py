@@ -1,12 +1,10 @@
-# To add a new cell, type '# %%'
-# To add a new markdown cell, type '# %% [markdown]'
-# %%
+
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import os
 
-# %%
+
 def plotGraph(raa,tcp,nWifi):
     throughputPath = "../Throughput_" + raa + "_" + tcp + "_" + str(nWifi) + ".csv"
     delayPath = "../Delay_" + raa + "_" + tcp + "_" + str(nWifi) + ".csv"
@@ -43,7 +41,6 @@ def plotGraph(raa,tcp,nWifi):
     plt.close()
 
 
-# %%
 raas = ["Arf", "Aarf","Aarfcd", "Onoe", "Minstrel"]
 tcps = ["TcpWestwood","TcpWestwoodPlus"]
 for nWifi in range(1,11):
@@ -52,3 +49,92 @@ for nWifi in range(1,11):
         plotGraph(raas[raaNum],tcps[1],nWifi)
 
 
+f=open("../averages.txt","r")
+lines=f.readlines()
+
+cwdir=os.getcwd()
+os.chdir("..")
+os.chdir(os.getcwd()+"/Results")
+
+out=[]
+for line in lines:
+    if len(line.split())==0:
+        continue
+    w1=line.split()[0]
+    if w1.isnumeric() or w1=="Average":
+        out.append(line)
+
+throughput={}
+delay={}
+throughput['TcpWestwood']={}
+throughput['TcpWestwoodPlus']={}
+delay['TcpWestwood']={}
+delay['TcpWestwoodPlus']={}
+for raa in ['Arf','Aarf','Aarfcd','Minstrel','Onoe']:
+    throughput['TcpWestwood'][raa]=[]
+    throughput['TcpWestwoodPlus'][raa]=[]
+    delay['TcpWestwood'][raa]=[]
+    delay['TcpWestwoodPlus'][raa]=[]
+
+nodes=1
+tcp="TcpWestwood"
+raa='Arf'
+for i in range(300):
+    line=out[i]
+    if i%3==0:
+        l=out[i].split()
+        nodes=int(l[0])
+        tcp=l[1]
+        raa=l[2]
+    elif i%3==1:
+        throughput[tcp][raa].append(float(line.split()[2]))
+    elif i%3==2:
+        delay[tcp][raa].append(float(line.split()[2][:-2]))
+
+x=[i for i in range(1,11)]
+for raa in ['Arf','Aarf','Aarfcd','Minstrel','Onoe']:
+    plt.plot(x,throughput["TcpWestwood"][raa],label="TcpWestwood")
+    plt.plot(x,throughput["TcpWestwoodPlus"][raa],label="TcpWestwoodPlus")
+    plt.legend()
+    plt.xlabel("#nodes")
+    plt.ylabel("throughput in Mbps")
+    plt.title("Average Throughput vs #nodes where Raa: "+raa)
+    plt.savefig("averages/avTH_"+raa)
+    plt.close()
+
+x=[i for i in range(1,11)]
+for raa in ['Arf','Aarf','Aarfcd','Minstrel','Onoe']:
+    plt.plot(x,delay["TcpWestwood"][raa],label="TcpWestwood")
+    plt.plot(x,delay["TcpWestwoodPlus"][raa],label="TcpWestwoodPlus")
+    plt.legend()
+    plt.xlabel("#nodes")
+    plt.ylabel("Delay in ms")
+    plt.title("Average Delay vs #nodes where Raa: "+raa)
+    plt.savefig("averages/avDelay_"+raa)
+    plt.close()
+
+plt.figure(figsize=(16, 12))
+x=[i for i in range(1,11)]
+for raa in ['Arf','Aarf','Aarfcd','Minstrel','Onoe']:
+    plt.plot(x,throughput["TcpWestwood"][raa],label="TcpWestwood_"+raa)
+    plt.plot(x,throughput["TcpWestwoodPlus"][raa],label="TcpWestwoodPlus_"+raa)
+plt.legend()
+plt.xlabel("#nodes")
+plt.ylabel("throughput in Mbps")
+plt.title("Average Throughput vs #nodes")
+plt.savefig("averages/average_throughput_all")
+plt.close()
+
+plt.figure(figsize=(16, 12))
+x=[i for i in range(1,11)]
+for raa in ['Arf','Aarf','Aarfcd','Minstrel','Onoe']:
+    plt.plot(x,delay["TcpWestwood"][raa],label="TcpWestwood_"+raa)
+    plt.plot(x,delay["TcpWestwoodPlus"][raa],label="TcpWestwoodPlus_"+raa)
+plt.legend()
+plt.xlabel("#nodes")
+plt.ylabel("Delay in ms")
+plt.title("Average delay vs #nodes")
+plt.savefig("averages/average_delay_all")
+plt.close()
+
+os.chdir(cwdir)

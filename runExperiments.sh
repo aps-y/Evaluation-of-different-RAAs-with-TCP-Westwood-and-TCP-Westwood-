@@ -6,13 +6,19 @@ for i in "${Raa_list[@]}"; do   # The quotes are necessary here
     echo "$i"
 done
 
+touch ../averages.txt
+echo "">../averages.txt
+
 for nwifi in "${num_nodes[@]}"; do
     for tcp in "${tcp_list[@]}"; do
         for raa in "${raa_list[@]}"; do
 
             echo "$nwifi $tcp $raa"
-            ../waf --run "assignment --tcp=$tcp --raa=$raa --nWifi=$nwifi"
+            ../waf --run "assignment --tcp=$tcp --raa=$raa --nWifi=$nwifi --logAverages=true"
 
         done
     done
 done
+
+python graphPlotter.py
+
