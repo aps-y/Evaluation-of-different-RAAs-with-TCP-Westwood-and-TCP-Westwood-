@@ -14,7 +14,7 @@ for nwifi in "${num_nodes[@]}"; do
         for raa in "${raa_list[@]}"; do
 
             echo "$nwifi $tcp $raa"
-            ../waf --run "assignment --tcp=$tcp --raa=$raa --nWifi=$nwifi --logAverages=true"
+            ../waf --run "assignment2 --tcp=$tcp --raa=$raa --nWifi=$nwifi --logAverages=true"
 
         done
     done
