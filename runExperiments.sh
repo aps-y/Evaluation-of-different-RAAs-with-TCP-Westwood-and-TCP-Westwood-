@@ -1,4 +1,5 @@
-num_nodes=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10")
+num_nodes=("1" "2" "3" "4" "5" "6" "7")
+#  "8" "9" "10")
 raa_list=("Arf" "Aarf" "Aarfcd" "Onoe" "Minstrel")
 tcp_list=("TcpWestwood" "TcpWestwoodPlus")
 
@@ -20,5 +21,5 @@ for nwifi in "${num_nodes[@]}"; do
     done
 done
 
-python graphPlotter.py
+python3 graphPlotter.py
 

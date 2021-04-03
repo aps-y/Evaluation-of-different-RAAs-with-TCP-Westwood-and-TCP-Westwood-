@@ -124,7 +124,7 @@ main (int argc, char *argv[])
   uint32_t nCsma = 3;
 
   //Number of STA(Stations)
-  uint32_t nWifi = 10;
+  uint32_t nWifi = 4;
 
   bool tracing = false;
 
@@ -212,20 +212,9 @@ main (int argc, char *argv[])
   NetDeviceContainer p2pDevices;
   p2pDevices = pointToPoint.Install (p2pNodes);
 
-  // NodeContainer csmaNodes;
-  // csmaNodes.Add (p2pNodes.Get (1));
-  // csmaNodes.Create (nCsma);
-
-  // CsmaHelper csma;
-  // csma.SetChannelAttribute ("DataRate", StringValue (std::to_string (csmaRate) + "Mbps"));
-  // csma.SetChannelAttribute ("Delay", TimeValue (NanoSeconds (csmaDelay)));
-
-  // NetDeviceContainer csmaDevices;
-  // csmaDevices = csma.Install (csmaNodes);
-
-// ----------------- Left Half -------------- //
-std::cout<<"creating left half"<<std::endl;
-  NodeContainer wifiStaNodesLeft; 
+  // ----------------- Left Half -------------- //
+  std::cout << "creating left half" << std::endl;
+  NodeContainer wifiStaNodesLeft;
   wifiStaNodesLeft.Create (nWifi);
   NodeContainer wifiApNodeLeft = p2pNodes.Get (0);
 
@@ -282,11 +271,11 @@ std::cout<<"creating left half"<<std::endl;
   mobilityLeft.SetMobilityModel ("ns3::ConstantPositionMobilityModel");
   mobilityLeft.Install (wifiApNodeLeft);
 
-  std::cout<<"created left half"<<std::endl;
+  std::cout << "created left half" << std::endl;
 
   // --------------- Right Half ------------------ //
 
-  std::cout<<"creating right half"<<std::endl;
+  std::cout << "creating right half" << std::endl;
 
   NodeContainer wifiStaNodesRight;
   wifiStaNodesRight.Create (nWifi);
@@ -330,7 +319,7 @@ std::cout<<"creating left half"<<std::endl;
 
   MobilityHelper mobilityRight;
 
-  mobilityRight.SetPositionAllocator ("ns3::GridPositionAllocator", "MinX", DoubleValue (0.0),
+  mobilityRight.SetPositionAllocator ("ns3::GridPositionAllocator", "MinX", DoubleValue (30.0),
                                       "MinY", DoubleValue (0.0), "DeltaX", DoubleValue (5.0),
                                       "DeltaY", DoubleValue (10.0), "GridWidth", UintegerValue (3),
                                       "LayoutType", StringValue ("RowFirst"));
@@ -345,7 +334,7 @@ std::cout<<"creating left half"<<std::endl;
   mobilityRight.SetMobilityModel ("ns3::ConstantPositionMobilityModel");
   mobilityRight.Install (wifiApNodeRight);
 
-  std::cout<<"created right half"<<std::endl;
+  std::cout << "created right half" << std::endl;
 
   InternetStackHelper stack;
   stack.Install (wifiApNodeLeft);
@@ -353,7 +342,7 @@ std::cout<<"creating left half"<<std::endl;
   stack.Install (wifiApNodeRight);
   stack.Install (wifiStaNodesRight);
 
-  std::cout<<"installed internet stack"<<std::endl;
+  std::cout << "installed internet stack" << std::endl;
 
   Ipv4AddressHelper address;
 
@@ -361,18 +350,17 @@ std::cout<<"creating left half"<<std::endl;
   Ipv4InterfaceContainer p2pInterfaces;
   p2pInterfaces = address.Assign (p2pDevices);
 
-  std::cout<<"assigning address left half"<<std::endl;
+  std::cout << "assigning address left half" << std::endl;
   address.SetBase ("10.1.2.0", "255.255.255.0");
   Ipv4InterfaceContainer wifiStaInterfacesLeft, wifiApInterfacesLeft;
   wifiStaInterfacesLeft = address.Assign (staDevicesLeft);
   wifiApInterfacesLeft = address.Assign (apDevicesLeft);
 
-std::cout<<"assigning address right half"<<std::endl;
+  std::cout << "assigning address right half" << std::endl;
   address.SetBase ("10.1.3.0", "255.255.255.0");
   Ipv4InterfaceContainer wifiStaInterfacesRight, wifiApInterfacesRight;
   wifiStaInterfacesRight = address.Assign (staDevicesRight);
   wifiApInterfacesRight = address.Assign (apDevicesRight);
-  
 
   NS_LOG_INFO ("Create Applications.");
 
@@ -384,57 +372,67 @@ std::cout<<"assigning address right half"<<std::endl;
   uint32_t packetSize = 1024;
 
   // ----------- creating source for left half ------------ //
-  std::cout<<"creating source for left half"<<std::endl;
+  std::cout << "creating source for left half" << std::endl;
 
-  BulkSendHelper sourceLeft ("ns3::TcpSocketFactory",
-                         InetSocketAddress (wifiApInterfacesRight.GetAddress (0), port));
-    std::cout<<"here"<<std::endl;
-
-  // Set the amount of data to send in bytes.  Zero is unlimited.
-  sourceLeft.SetAttribute ("MaxBytes", UintegerValue (maxBytes));
-  sourceLeft.SetAttribute ("SendSize", UintegerValue (packetSize));
   ApplicationContainer sourceAppsLeft;
   for (int i = 0; i < int (nWifi); i++)
     {
+
+      BulkSendHelper sourceLeft ("ns3::TcpSocketFactory",
+                                 InetSocketAddress (wifiStaInterfacesRight.GetAddress (i), port));
+      std::cout << "here" << std::endl;
+
+      // Set the amount of data to send in bytes.  Zero is unlimited.
+      sourceLeft.SetAttribute ("MaxBytes", UintegerValue (maxBytes));
+      sourceLeft.SetAttribute ("SendSize", UintegerValue (packetSize));
+
       sourceAppsLeft.Add (sourceLeft.Install (wifiStaNodesLeft.Get (i)));
     }
   sourceAppsLeft.Start (Seconds (2.0));
   sourceAppsLeft.Stop (Seconds (6.0));
 
   // ---------- creating source for right half ----------- //
-    std::cout<<"creating source for right half"<<std::endl;
+  std::cout << "creating source for right half" << std::endl;
 
-  BulkSendHelper sourceRight ("ns3::TcpSocketFactory",
-                         InetSocketAddress (wifiApInterfacesLeft.GetAddress (0), port));
-  // Set the amount of data to send in bytes.  Zero is unlimited.
-  sourceRight.SetAttribute ("MaxBytes", UintegerValue (maxBytes));
-  sourceRight.SetAttribute ("SendSize", UintegerValue (packetSize));
   ApplicationContainer sourceAppsRight;
   for (int i = 0; i < int (nWifi); i++)
     {
+      BulkSendHelper sourceRight ("ns3::TcpSocketFactory",
+                                  InetSocketAddress (wifiStaInterfacesLeft.GetAddress (i), port));
+      // Set the amount of data to send in bytes.  Zero is unlimited.
+      sourceRight.SetAttribute ("MaxBytes", UintegerValue (maxBytes));
+      sourceRight.SetAttribute ("SendSize", UintegerValue (packetSize));
       sourceAppsRight.Add (sourceRight.Install (wifiStaNodesRight.Get (i)));
     }
   sourceAppsRight.Start (Seconds (2.0));
   sourceAppsRight.Stop (Seconds (6.0));
 
   // Creating a PacketSinkApplication and install it on one of the CSMA nodes
-  std::cout<<"creating sink for left half"<<std::endl;
+  std::cout << "creating sink for left half" << std::endl;
 
-  PacketSinkHelper sinkLeft ("ns3::TcpSocketFactory",
-                         InetSocketAddress (wifiApInterfacesLeft.GetAddress (0), port));
-  ApplicationContainer sinkAppsLeft = sinkLeft.Install (wifiApNodeLeft.Get (0));
+  ApplicationContainer sinkAppsLeft;
+  for (int i = 0; i < int (nWifi); i++)
+    {
+      PacketSinkHelper sinkLeft ("ns3::TcpSocketFactory",
+                                 InetSocketAddress (wifiStaInterfacesLeft.GetAddress (i), port));
+      sinkAppsLeft.Add (sinkLeft.Install (wifiStaNodesLeft.Get (i)));
+    }
   sinkAppsLeft.Start (Seconds (1.0));
   sinkAppsLeft.Stop (Seconds (6.0));
 
-  std::cout<<"creating sink for right half"<<std::endl;
+  std::cout << "creating sink for right half" << std::endl;
 
-  PacketSinkHelper sinkRight ("ns3::TcpSocketFactory",
-                         InetSocketAddress (wifiApInterfacesRight.GetAddress (0), port));
-  ApplicationContainer sinkAppsRight = sinkRight.Install (wifiApNodeRight.Get (0));
+  ApplicationContainer sinkAppsRight;
+  for (int i = 0; i < int (nWifi); i++)
+    {
+      PacketSinkHelper sinkRight ("ns3::TcpSocketFactory",
+                                 InetSocketAddress (wifiStaInterfacesRight.GetAddress (i), port));
+      sinkAppsRight.Add (sinkRight.Install (wifiStaNodesRight.Get (i)));
+    }
   sinkAppsRight.Start (Seconds (1.0));
   sinkAppsRight.Stop (Seconds (6.0));
 
-    std::cout<<"populating routing tables"<<std::endl;
+  std::cout << "populating routing tables" << std::endl;
 
   Ipv4GlobalRoutingHelper::PopulateRoutingTables ();
 
@@ -445,7 +443,7 @@ std::cout<<"assigning address right half"<<std::endl;
   data.lastDelaySum = 0;
   Simulator::Schedule (Seconds (1.0), &Throughput);
 
-  Simulator::Stop (Seconds (3.0));
+  Simulator::Stop (Seconds (7.0));
 
   if (tracing == true)
     {
@@ -472,7 +470,7 @@ std::cout<<"assigning address right half"<<std::endl;
       outfile.open ("averages.txt", std::ios_base::app); // append instead of overwrite
       outfile << nWifi << " " << tcp_name << " " << raa_name << std::endl;
       // outfile << "Average Throughput: " << sink1->GetTotalRx () * 8.0 / (4 * 1024 * 1024) << " Mbps"
-              // << std::endl;
+      // << std::endl;
       outfile << "Average Delay: " << averageDelay << "ms" << std::endl;
       outfile.close ();
     }
