@@ -49,7 +49,7 @@ for nWifi in range(1,11):
         plotGraph(raas[raaNum],tcps[1],nWifi)
 
 
-f=open("../averages1.txt","r")
+f=open("../averages.txt","r")
 lines=f.readlines()
 
 cwdir=os.getcwd()
