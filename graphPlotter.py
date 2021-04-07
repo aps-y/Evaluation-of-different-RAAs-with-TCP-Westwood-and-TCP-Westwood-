@@ -43,13 +43,13 @@ def plotGraph(raa,tcp,nWifi):
 
 raas = ["Arf", "Aarf","Aarfcd", "Onoe", "Minstrel"]
 tcps = ["TcpWestwood","TcpWestwoodPlus"]
-for nWifi in range(1,11):
-    for raaNum in range(0,5):
-        plotGraph(raas[raaNum],tcps[0],nWifi)
-        plotGraph(raas[raaNum],tcps[1],nWifi)
+# for nWifi in range(1,11):
+#     for raaNum in range(0,5):
+#         plotGraph(raas[raaNum],tcps[0],nWifi)
+#         plotGraph(raas[raaNum],tcps[1],nWifi)
 
 
-f=open("../averages.txt","r")
+f=open("../averages1.txt","r")
 lines=f.readlines()
 
 cwdir=os.getcwd()
@@ -81,7 +81,8 @@ tcp="TcpWestwood"
 raa='Arf'
 for i in range(300):
     line=out[i]
-    if i%3==0:
+    if len(line.split(' '))==3 and line.split(' ')[1].startswith('Tcp'):
+        print(line)
         l=out[i].split()
         nodes=int(l[0])
         tcp=l[1]
