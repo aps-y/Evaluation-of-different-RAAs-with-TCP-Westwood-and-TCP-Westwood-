@@ -469,8 +469,17 @@ main (int argc, char *argv[])
       std::ofstream outfile;
       outfile.open ("averages.txt", std::ios_base::app); // append instead of overwrite
       outfile << nWifi << " " << tcp_name << " " << raa_name << std::endl;
-      // outfile << "Average Throughput: " << sink1->GetTotalRx () * 8.0 / (4 * 1024 * 1024) << " Mbps"
-      // << std::endl;
+      uint32_t total_Bytes_rcvd=0;
+      for(int i=0;i<(int)nWifi;i++)
+      {
+          Ptr<PacketSink> sinkL = DynamicCast<PacketSink> (sinkAppsLeft.Get (i));
+          total_Bytes_rcvd+= sinkL->GetTotalRx();
+          Ptr<PacketSink> sinkR = DynamicCast<PacketSink> (sinkAppsRight.Get (i));
+          total_Bytes_rcvd+= sinkR->GetTotalRx();
+
+      }
+      outfile << "Average Throughput: " << total_Bytes_rcvd * 8.0 / (4 * 1024 * 1024) << " Mbps"
+      << std::endl;
       outfile << "Average Delay: " << averageDelay << "ms" << std::endl;
       outfile.close ();
     }

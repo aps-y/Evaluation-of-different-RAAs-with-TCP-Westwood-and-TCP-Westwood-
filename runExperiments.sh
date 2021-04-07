@@ -1,4 +1,5 @@
-num_nodes=("1" "2" "3" "4" "5" "6" "7")
+num_nodes=("5")
+#  "2" "3" "4" "5" "6" "7")
 #  "8" "9" "10")
 raa_list=("Arf" "Aarf" "Aarfcd" "Onoe" "Minstrel")
 tcp_list=("TcpWestwood" "TcpWestwoodPlus")
