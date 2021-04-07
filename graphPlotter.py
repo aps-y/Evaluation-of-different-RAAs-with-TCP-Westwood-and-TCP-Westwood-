@@ -79,7 +79,7 @@ for raa in ['Arf','Aarf','Aarfcd','Minstrel','Onoe']:
 nodes=1
 tcp="TcpWestwood"
 raa='Arf'
-for i in range(300):
+for i in range(len(out)):
     line=out[i]
     if len(line.split(' '))==3 and line.split(' ')[1].startswith('Tcp'):
         print(line)
