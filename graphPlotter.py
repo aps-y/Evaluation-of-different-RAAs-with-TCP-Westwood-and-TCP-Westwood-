@@ -86,10 +86,11 @@ for i in range(300):
         nodes=int(l[0])
         tcp=l[1]
         raa=l[2]
-    elif i%3==1:
-        throughput[tcp][raa].append(float(line.split()[2]))
-    elif i%3==2:
-        delay[tcp][raa].append(float(line.split()[2][:-2]))
+    if line.startswith("Average"):
+        if line.split(' ')[1]=="Throughput:":
+            throughput[tcp][raa].append(float(line.split()[2]))
+        elif line.split(' ')[1]=="Delay:":
+            delay[tcp][raa].append(float(line.split()[2][:-2]))
 
 x=[i for i in range(1,11)]
 for raa in ['Arf','Aarf','Aarfcd','Minstrel','Onoe']:
