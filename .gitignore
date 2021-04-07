@@ -1,7 +1,7 @@
 # Ignore everything on scratch by default, except the provided examples
 /*
 !.gitignore
-!assignment.cc
-!assignment2.cc
+!oneWayFlowTest.cc
+!twoWayFlowTest.cc
 !runExperiments.sh
 !graphPlotter.py

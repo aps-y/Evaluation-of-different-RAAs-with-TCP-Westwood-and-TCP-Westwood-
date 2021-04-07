@@ -43,7 +43,7 @@ def plotGraph(raa,tcp,nWifi):
 
 raas = ["Arf", "Aarf","Aarfcd", "Onoe", "Minstrel"]
 tcps = ["TcpWestwood","TcpWestwoodPlus"]
-for nWifi in range(1,11):
+for nWifi in range(2,8):
     for raaNum in range(0,5):
         plotGraph(raas[raaNum],tcps[0],nWifi)
         plotGraph(raas[raaNum],tcps[1],nWifi)
@@ -93,7 +93,7 @@ for i in range(len(out)):
         elif line.split(' ')[1]=="Delay:":
             delay[tcp][raa].append(float(line.split()[2][:-2]))
 
-x=[i for i in range(1,11)]
+x=[i for i in range(2,8)]
 for raa in ['Arf','Aarf','Aarfcd','Minstrel','Onoe']:
     plt.plot(x,throughput["TcpWestwood"][raa],label="TcpWestwood")
     plt.plot(x,throughput["TcpWestwoodPlus"][raa],label="TcpWestwoodPlus")
@@ -104,7 +104,7 @@ for raa in ['Arf','Aarf','Aarfcd','Minstrel','Onoe']:
     plt.savefig("averages/avTH_"+raa)
     plt.close()
 
-x=[i for i in range(1,11)]
+x=[i for i in range(2,8)]
 for raa in ['Arf','Aarf','Aarfcd','Minstrel','Onoe']:
     plt.plot(x,delay["TcpWestwood"][raa],label="TcpWestwood")
     plt.plot(x,delay["TcpWestwoodPlus"][raa],label="TcpWestwoodPlus")
@@ -116,7 +116,7 @@ for raa in ['Arf','Aarf','Aarfcd','Minstrel','Onoe']:
     plt.close()
 
 plt.figure(figsize=(16, 12))
-x=[i for i in range(1,11)]
+x=[i for i in range(2,8)]
 for raa in ['Arf','Aarf','Aarfcd','Minstrel','Onoe']:
     plt.plot(x,throughput["TcpWestwood"][raa],label="TcpWestwood_"+raa)
     plt.plot(x,throughput["TcpWestwoodPlus"][raa],label="TcpWestwoodPlus_"+raa)
@@ -128,7 +128,7 @@ plt.savefig("averages/average_throughput_all")
 plt.close()
 
 plt.figure(figsize=(16, 12))
-x=[i for i in range(1,11)]
+x=[i for i in range(2,8)]
 for raa in ['Arf','Aarf','Aarfcd','Minstrel','Onoe']:
     plt.plot(x,delay["TcpWestwood"][raa],label="TcpWestwood_"+raa)
     plt.plot(x,delay["TcpWestwoodPlus"][raa],label="TcpWestwoodPlus_"+raa)

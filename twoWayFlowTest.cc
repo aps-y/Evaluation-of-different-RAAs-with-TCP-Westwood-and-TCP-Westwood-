@@ -120,11 +120,9 @@ main (int argc, char *argv[])
 {
   bool verbose = true;
   bool logAverages = false;
-  //Number of CSMA(LAN) nodes
-  uint32_t nCsma = 3;
 
   //Number of STA(Stations)
-  uint32_t nWifi = 4;
+  int nWifi = 4;
 
   bool tracing = false;
 
@@ -138,17 +136,15 @@ main (int argc, char *argv[])
   std::string errorModelType = "ns3::NistErrorRateModel";
 
   //RAA algorithm (WifiManager Class) -> Default = MinstrelHt
-  std::string raaAlgo = "MinstrelHt";
+  std::string raaAlgo = "Onoe";
 
   //Variables to set rates of various channels in topology, Refer base topology structure.
   // uint32_t csmaRate = 150;
   // uint32_t csmaDelay = 9000;
-  uint32_t p2pRate = 50;
-  uint32_t p2pDelay = 10;
-
+  uint32_t p2pRate = 15;
+  uint32_t p2pDelay = 5;
   //Command-Line argument to make it interactive.
   CommandLine cmd (__FILE__);
-  cmd.AddValue ("nCsma", "Number of \"extra\" CSMA nodes/devices", nCsma);
   cmd.AddValue ("nWifi", "Number of wifi STA devices", nWifi);
   cmd.AddValue ("verbose", "Tell echo applications to log if true", verbose);
   cmd.AddValue ("logAverages", "write averages into a file if true",
@@ -211,6 +207,15 @@ main (int argc, char *argv[])
 
   NetDeviceContainer p2pDevices;
   p2pDevices = pointToPoint.Install (p2pNodes);
+
+  Ptr<RateErrorModel> errModelLeft = CreateObject<RateErrorModel> ();
+  errModelLeft->SetAttribute ("ErrorRate", DoubleValue (0.00005));
+  p2pDevices.Get (0)->SetAttribute ("ReceiveErrorModel", PointerValue (errModelLeft));
+
+  Ptr<RateErrorModel> errModelRight = CreateObject<RateErrorModel> ();
+  errModelRight->SetAttribute ("ErrorRate", DoubleValue (0.00005));
+  p2pDevices.Get (1)->SetAttribute ("ReceiveErrorModel", PointerValue (errModelRight));
+  
 
   // ----------------- Left Half -------------- //
   std::cout << "creating left half" << std::endl;
@@ -340,6 +345,9 @@ main (int argc, char *argv[])
   stack.Install (wifiApNodeLeft);
   stack.Install (wifiStaNodesLeft);
   stack.Install (wifiApNodeRight);
+
+  Config::SetDefault ("ns3::TcpL4Protocol::SocketType",
+                          TypeIdValue (TcpNewReno::GetTypeId ()));
   stack.Install (wifiStaNodesRight);
 
   std::cout << "installed internet stack" << std::endl;
@@ -371,11 +379,15 @@ main (int argc, char *argv[])
   //Setting packetsize (Bytes)
   uint32_t packetSize = 1024;
 
+  //making half flows left to right
+  int nLRflows = ceil((double)nWifi/2);
+  std::cout<<"nLRflows- "<<nLRflows<<std::endl;
+
   // ----------- creating source for left half ------------ //
   std::cout << "creating source for left half" << std::endl;
 
   ApplicationContainer sourceAppsLeft;
-  for (int i = 0; i < int (nWifi); i++)
+  for (int i = 0; i < nLRflows; i++)
     {
 
       BulkSendHelper sourceLeft ("ns3::TcpSocketFactory",
@@ -395,7 +407,7 @@ main (int argc, char *argv[])
   std::cout << "creating source for right half" << std::endl;
 
   ApplicationContainer sourceAppsRight;
-  for (int i = 0; i < int (nWifi); i++)
+  for (int i = nLRflows; i < nWifi; i++)
     {
       BulkSendHelper sourceRight ("ns3::TcpSocketFactory",
                                   InetSocketAddress (wifiStaInterfacesLeft.GetAddress (i), port));
@@ -411,7 +423,7 @@ main (int argc, char *argv[])
   std::cout << "creating sink for left half" << std::endl;
 
   ApplicationContainer sinkAppsLeft;
-  for (int i = 0; i < int (nWifi); i++)
+  for (int i = nLRflows; i < nWifi; i++)
     {
       PacketSinkHelper sinkLeft ("ns3::TcpSocketFactory",
                                  InetSocketAddress (wifiStaInterfacesLeft.GetAddress (i), port));
@@ -423,7 +435,7 @@ main (int argc, char *argv[])
   std::cout << "creating sink for right half" << std::endl;
 
   ApplicationContainer sinkAppsRight;
-  for (int i = 0; i < int (nWifi); i++)
+  for (int i = 0; i < nLRflows; i++)
     {
       PacketSinkHelper sinkRight ("ns3::TcpSocketFactory",
                                  InetSocketAddress (wifiStaInterfacesRight.GetAddress (i), port));
@@ -437,7 +449,13 @@ main (int argc, char *argv[])
   Ipv4GlobalRoutingHelper::PopulateRoutingTables ();
 
   //Initialisation of global variable which are used for Throughput and Delay Calculation.
-  data.monitor = data.flowmon.InstallAll ();
+  NodeContainer staNodes;
+  for(int i=0;i<nLRflows;i++){
+    staNodes.Add(wifiStaNodesLeft.Get(i));
+    staNodes.Add(wifiStaNodesRight.Get(i));
+  }
+  
+  data.monitor = data.flowmon.Install(staNodes);
   data.lastTotalRxBytes = 0;
   data.lastRxPackets = 0;
   data.lastDelaySum = 0;
@@ -470,14 +488,16 @@ main (int argc, char *argv[])
       outfile.open ("averages.txt", std::ios_base::app); // append instead of overwrite
       outfile << nWifi << " " << tcp_name << " " << raa_name << std::endl;
       uint32_t total_Bytes_rcvd=0;
-      for(int i=0;i<(int)nWifi;i++)
+      
+      for(int i=0;i<nLRflows;i++)
       {
-          Ptr<PacketSink> sinkL = DynamicCast<PacketSink> (sinkAppsLeft.Get (i));
-          total_Bytes_rcvd+= sinkL->GetTotalRx();
+          // Ptr<PacketSink> sinkL = DynamicCast<PacketSink> (sinkAppsLeft.Get (i));
+          // total_Bytes_rcvd+= sinkL->GetTotalRx();
           Ptr<PacketSink> sinkR = DynamicCast<PacketSink> (sinkAppsRight.Get (i));
           total_Bytes_rcvd+= sinkR->GetTotalRx();
 
       }
+      std::cout<<"here--------"<<std::endl;
       outfile << "Average Throughput: " << total_Bytes_rcvd * 8.0 / (4 * 1024 * 1024) << " Mbps"
       << std::endl;
       outfile << "Average Delay: " << averageDelay << "ms" << std::endl;
