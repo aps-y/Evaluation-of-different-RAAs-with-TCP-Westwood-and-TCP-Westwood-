@@ -43,10 +43,10 @@ def plotGraph(raa,tcp,nWifi):
 
 raas = ["Arf", "Aarf","Aarfcd", "Onoe", "Minstrel"]
 tcps = ["TcpWestwood","TcpWestwoodPlus"]
-# for nWifi in range(1,11):
-#     for raaNum in range(0,5):
-#         plotGraph(raas[raaNum],tcps[0],nWifi)
-#         plotGraph(raas[raaNum],tcps[1],nWifi)
+for nWifi in range(1,11):
+    for raaNum in range(0,5):
+        plotGraph(raas[raaNum],tcps[0],nWifi)
+        plotGraph(raas[raaNum],tcps[1],nWifi)
 
 
 f=open("../averages1.txt","r")
