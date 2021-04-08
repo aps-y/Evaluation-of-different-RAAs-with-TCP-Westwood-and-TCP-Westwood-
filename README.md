@@ -22,11 +22,11 @@
 ## Avg_Throughput graph
 ![Avg_Throughput Graph](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/Results/averages/average_throughput_all.png)
 
-## Sample Output for 3 wifi nodes on each side of the p2p link
+## Sample Output for 4 wifi nodes on each side of the p2p link
 
-![TCPs Delay Comparison](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/Results/Combined4_Raa_and_nodes/delay%203nodes%20Minstrel.png)
-![TCPs Throughput Comparison](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/Results/Combined4_Raa_and_nodes/throughput%203nodes%20Minstrel.png)
-![TCP-Westwood Delay Against Raas Comparison](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/Results/Combined4_nodes_and_tcp/delay%203nodes%20TcpWestwood.png)
-![TCP-Westwood Throughput Against Raas Comparison](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/Results/Combined4_nodes_and_tcp/throughput%203nodes%20TcpWestwood.png)
+![TCPs Delay Comparison](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/Results/Combined4_Raa_and_nodes/delay%204nodes%20Minstrel.png)
+![TCPs Throughput Comparison](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/Results/Combined4_Raa_and_nodes/throughput%204nodes%20Minstrel.png)
+![TCP-Westwood Delay Against Raas Comparison](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/Results/Combined4_nodes_and_tcp/delay%204nodes%20TcpWestwood.png)
+![TCP-Westwood Throughput Against Raas Comparison](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/Results/Combined4_nodes_and_tcp/throughput%204nodes%20TcpWestwood.png)
 
 #### For more detailed look at the results please go into the [Results](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/tree/main/Results) directory
