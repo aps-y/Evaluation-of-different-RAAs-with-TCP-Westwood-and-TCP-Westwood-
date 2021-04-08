@@ -24,6 +24,7 @@
 #include "ns3/yans-wifi-helper.h"
 #include "ns3/ssid.h"
 #include "ns3/flow-monitor.h"
+#include "ns3/netanim-module.h"
 #include "ns3/flow-monitor-helper.h"
 #include "ns3/ipv4-flow-classifier.h"
 #include <fstream>
@@ -470,11 +471,35 @@ main (int argc, char *argv[])
       phyRight.EnablePcap ("third_phy_right", apDevicesRight.Get (0));
     }
 
+  AnimationInterface anim ("twoWayFlow_anim.xml"); // Mandatory
+  for (uint32_t i = 0; i < wifiStaNodesLeft.GetN (); ++i)
+    {
+      anim.UpdateNodeDescription (wifiStaNodesLeft.Get (i), "STA_L"); // Optional
+      anim.UpdateNodeColor (wifiStaNodesLeft.Get (i), 255, 0, 0); // Optional
+    }
+  for (uint32_t i = 0; i < wifiApNodeLeft.GetN (); ++i)
+    {
+      anim.UpdateNodeDescription (wifiApNodeLeft.Get (i), "AP_L"); // Optional
+      anim.UpdateNodeColor (wifiApNodeLeft.Get (i), 0, 255, 0); // Optional
+    }
+  for (uint32_t i = 0; i < wifiStaNodesRight.GetN (); ++i)
+    {
+      anim.UpdateNodeDescription (wifiStaNodesRight.Get (i), "STA_R"); // Optional
+      anim.UpdateNodeColor (wifiStaNodesRight.Get (i), 255, 0, 0); // Optional
+    }
+  for (uint32_t i = 0; i < wifiApNodeRight.GetN (); ++i)
+    {
+      anim.UpdateNodeDescription (wifiApNodeRight.Get (i), "AP_R"); // Optional
+      anim.UpdateNodeColor (wifiApNodeRight.Get (i), 0, 255, 0); // Optional
+    }
+
   Simulator::Run ();
   Simulator::Destroy ();
 
   delayStream.close ();
   throughputStream.close ();
+
+  
 
   // Ptr<PacketSink> sink1 = DynamicCast<PacketSink> (sinkApps.Get (0));
   // std::cout << "Total Bytes Received: " << sink1->GetTotalRx () << std::endl;
