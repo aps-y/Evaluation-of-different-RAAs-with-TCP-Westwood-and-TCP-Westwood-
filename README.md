@@ -2,7 +2,7 @@
 
 ## Files included 
 
-1. **assignment.cc** - the testbed for the evaluation
+1. **twoWayFlowTest.cc** - the testbed for the evaluation
     * The file contains the testbed that is used for the evaluation
     * Relevant Commandline Arguments :-
         * nWifi (int) :- Number of wireless nodes
