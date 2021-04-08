@@ -30,17 +30,16 @@
 #include <fstream>
 #include <iostream>
 
-// This file is modified from /examples/tutorials/third.cc
-// Default Network Topology
+// 
 //
-//   Wifi 10.1.3.0
-//                 AP
-//  *    *    *    *
-//  |    |    |    |    10.1.1.0
-// n5   n6   n7   n0 -------------- n1   n2   n3   n4
-//                   point-to-point  |    |    |    |
-//                                   ================
-//                                     LAN 10.1.2.0
+//    Wifi 10.1.2.0
+//                   AP1
+//  *     *     *     *
+//  |     |     |     |     10.1.1.0    AP2
+// n3L   n2L   n1L   n0L -------------- n0R   n1R   n2R   n3R
+//                       point-to-point  |     |     |     |
+//                                       *     *     *     *
+//                                         Wifi 10.1.3.0
 
 using namespace ns3;
 
@@ -156,8 +155,6 @@ main (int argc, char *argv[])
   cmd.AddValue ("maxBytes", "Max number of Bytes to be sent", maxBytes);
   cmd.AddValue ("p2pRate", "Mbps", p2pRate);
   cmd.AddValue ("p2pDelay", "MilliSeconds", p2pDelay);
-  // cmd.AddValue ("csmaDelay", "NanoSeconds", csmaDelay);
-  // cmd.AddValue ("csmaRate", "Mbps", csmaRate);
 
   cmd.Parse (argc, argv);
 
