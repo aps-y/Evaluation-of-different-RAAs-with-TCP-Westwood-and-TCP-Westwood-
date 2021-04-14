@@ -1,7 +1,4 @@
-# Ignore everything on scratch by default, except the provided examples
-/*
-!.gitignore
-!oneWayFlowTest.cc
-!twoWayFlowTest.cc
-!runExperiments.sh
-!graphPlotter.py
+assignment1.cc
+assignment3.cc
+scratch-simulator.cc
+subdir/*
