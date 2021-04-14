@@ -400,8 +400,8 @@ main (int argc, char *argv[])
 
       sourceAppsLeft.Add (sourceLeft.Install (wifiStaNodesLeft.Get (i)));
     }
-  sourceAppsLeft.Start (Seconds (2.0));
-  sourceAppsLeft.Stop (Seconds (6.0));
+  sourceAppsLeft.Start (Seconds (1.0));
+  sourceAppsLeft.Stop (Seconds (100.0));
 
   // ---------- creating source for right half ----------- //
   std::cout << "creating source for right half" << std::endl;
@@ -416,8 +416,8 @@ main (int argc, char *argv[])
       sourceRight.SetAttribute ("SendSize", UintegerValue (packetSize));
       sourceAppsRight.Add (sourceRight.Install (wifiStaNodesRight.Get (i)));
     }
-  sourceAppsRight.Start (Seconds (2.0));
-  sourceAppsRight.Stop (Seconds (6.0));
+  sourceAppsRight.Start (Seconds (1.0));
+  sourceAppsRight.Stop (Seconds (100.0));
 
   // Creating a PacketSinkApplication and install it on one of the CSMA nodes
   std::cout << "creating sink for left half" << std::endl;
@@ -429,8 +429,8 @@ main (int argc, char *argv[])
                                  InetSocketAddress (wifiStaInterfacesLeft.GetAddress (i), port));
       sinkAppsLeft.Add (sinkLeft.Install (wifiStaNodesLeft.Get (i)));
     }
-  sinkAppsLeft.Start (Seconds (1.0));
-  sinkAppsLeft.Stop (Seconds (6.0));
+  sinkAppsLeft.Start (Seconds (0.0));
+  sinkAppsLeft.Stop (Seconds (100.0));
 
   std::cout << "creating sink for right half" << std::endl;
 
@@ -441,8 +441,8 @@ main (int argc, char *argv[])
                                  InetSocketAddress (wifiStaInterfacesRight.GetAddress (i), port));
       sinkAppsRight.Add (sinkRight.Install (wifiStaNodesRight.Get (i)));
     }
-  sinkAppsRight.Start (Seconds (1.0));
-  sinkAppsRight.Stop (Seconds (6.0));
+  sinkAppsRight.Start (Seconds (0.0));
+  sinkAppsRight.Stop (Seconds (100.0));
 
   std::cout << "populating routing tables" << std::endl;
 
@@ -461,7 +461,7 @@ main (int argc, char *argv[])
   data.lastDelaySum = 0;
   Simulator::Schedule (Seconds (1.0), &Throughput);
 
-  Simulator::Stop (Seconds (7.0));
+  Simulator::Stop (Seconds (101.0));
 
   if (tracing == true)
     {
