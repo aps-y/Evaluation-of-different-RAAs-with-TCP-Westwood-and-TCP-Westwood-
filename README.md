@@ -20,32 +20,30 @@
 
 ### Minstrel
    #### Delay
-![TCPs Delay Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/4nodes/Delay/Minstrel.png)
+![TCPs Delay Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/RNG_Averages/4nodes/Delay/Minstrel.png)
    #### Throughput
-![TCPs Throughput Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/4nodes/Throughput/Minstrel.png)
+![TCPs Throughput Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/RNG_Averages/4nodes/Throughput/Minstrel.png)
 
 ### Aarfcd
    #### Delay
-![TCPs Delay Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/4nodes/Delay/Aarfcd.png)
+![TCPs Delay Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/RNG_Averages/4nodes/Delay/Aarfcd.png)
    #### Throughput
-![TCPs Throughput Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/4nodes/Throughput/Aarfcd.png)
+![TCPs Throughput Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/RNG_Averages/4nodes/Throughput/Aarfcd.png)
 
 ### Aarf
    #### Delay
-![TCPs Delay Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/4nodes/Delay/Aarf.png)
+![TCPs Delay Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/RNG_Averages/4nodes/Delay/Aarf.png)
    #### Throughput
-![TCPs Throughput Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/4nodes/Throughput/Aarf.png)
+![TCPs Throughput Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/RNG_Averages/4nodes/Throughput/Aarf.png)
 
 ### Arf
    #### Delay
-![TCPs Delay Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/4nodes/Delay/Arf.png)
+![TCPs Delay Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/RNG_Averages/4nodes/Delay/Arf.png)
    #### Throughput
-![TCPs Throughput Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/4nodes/Throughput/Arf.png)
+![TCPs Throughput Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/RNG_Averages/4nodes/Throughput/Arf.png)
 
 ### Onoe
    #### Delay
-![TCPs Delay Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/4nodes/Delay/Onoe.png)
+![TCPs Delay Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/RNG_Averages/4nodes/Delay/Onoe.png)
    #### Throughput
-![TCPs Throughput Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/4nodes/Throughput/Onoe.png)
-
-#### For more detailed look at the results please go into the [Results](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/tree/main/Results) directory
+![TCPs Throughput Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/RNG_Averages/4nodes/Throughput/Onoe.png)
