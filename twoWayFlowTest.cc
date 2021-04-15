@@ -143,6 +143,7 @@ main (int argc, char *argv[])
   // uint32_t csmaDelay = 9000;
   uint32_t p2pRate = 15;
   uint32_t p2pDelay = 5;
+  int rngRun =1;
   //Command-Line argument to make it interactive.
   CommandLine cmd (__FILE__);
   cmd.AddValue ("nWifi", "Number of wifi STA devices", nWifi);
@@ -155,6 +156,7 @@ main (int argc, char *argv[])
   cmd.AddValue ("maxBytes", "Max number of Bytes to be sent", maxBytes);
   cmd.AddValue ("p2pRate", "Mbps", p2pRate);
   cmd.AddValue ("p2pDelay", "MilliSeconds", p2pDelay);
+  cmd.AddValue("rngRun","int",rngRun);
 
   cmd.Parse (argc, argv);
 
@@ -162,10 +164,10 @@ main (int argc, char *argv[])
   raaAlgo = "ns3::" + raaAlgo + "WifiManager";
 
   //Store values of Throughput and delay in respective files for plotting graph
-  delayStream.open ("Delay_" + raa_name + "_" + transport_prot + "_" + std::to_string (nWifi) +
+  delayStream.open ("Delay_" + raa_name + "_" + transport_prot + "_" + std::to_string (nWifi)+"_" + std::to_string(rngRun)+
                     ".csv");
   throughputStream.open ("Throughput_" + raa_name + "_" + transport_prot + "_" +
-                         std::to_string (nWifi) + ".csv");
+                         std::to_string (nWifi)+"_" + std::to_string(rngRun) + ".csv");
 
   std::string tcp_name = transport_prot;
   transport_prot = std::string ("ns3::") + transport_prot;
@@ -520,6 +522,7 @@ main (int argc, char *argv[])
 
       }
       std::cout<<"here--------"<<std::endl;
+      outfile<<"RndRun = "<<rngRun<<std::endl;
       outfile << "Average Throughput: " << total_Bytes_rcvd * 8.0 / (100 * 1024 * 1024) << " Mbps"
       << std::endl;
       outfile << "Average Delay: " << averageDelay << "ms" << std::endl;
