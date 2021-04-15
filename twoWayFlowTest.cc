@@ -110,7 +110,7 @@ Throughput ()
       delayStream << 0 << std::endl;
     }
   NS_LOG_UNCOND ("Throughput " << (dataInLastSecond * 8.0) / (1024 * 1024) << "Mbps");
-  throughputStream << (dataInLastSecond * 8.0 * 5) / (1024 * 1024) << std::endl;
+  throughputStream << (dataInLastSecond * 8.0 ) / (1024 * 1024) << std::endl;
 
   Simulator::Schedule (Seconds (1.0), &Throughput);
 }
