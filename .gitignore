@@ -1,7 +1,7 @@
-/*
+/**
 !graphPlotter.py
 !twoWayFlowTest.cc
 !oneWayFlowTest.cc
 !runExperiments.cc
-!ReadmeResults/*
-!Results/*
+!ReadmeResults/**
+!Results/**
