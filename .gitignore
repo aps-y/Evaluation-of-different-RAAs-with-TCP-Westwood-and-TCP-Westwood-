@@ -1,4 +1,6 @@
-assignment1.cc
-assignment3.cc
-scratch-simulator.cc
-subdir/*
+/*
+!graphPlotter.py
+!twoWayFlowTest.cc
+!oneWayFlowTest.cc
+!runExperiments.cc
+!ReadmeResults/*

@@ -109,10 +109,10 @@ Throughput ()
       NS_LOG_UNCOND ("Delay " << 0 << "ms");
       delayStream << 0 << std::endl;
     }
-  NS_LOG_UNCOND ("Throughput " << (dataInLastSecond * 8.0 * 5) / (1024 * 1024) << "Mbps");
+  NS_LOG_UNCOND ("Throughput " << (dataInLastSecond * 8.0) / (1024 * 1024) << "Mbps");
   throughputStream << (dataInLastSecond * 8.0 * 5) / (1024 * 1024) << std::endl;
 
-  Simulator::Schedule (Seconds (0.2), &Throughput);
+  Simulator::Schedule (Seconds (1.0), &Throughput);
 }
 
 int
@@ -520,7 +520,7 @@ main (int argc, char *argv[])
 
       }
       std::cout<<"here--------"<<std::endl;
-      outfile << "Average Throughput: " << total_Bytes_rcvd * 8.0 / (4 * 1024 * 1024) << " Mbps"
+      outfile << "Average Throughput: " << total_Bytes_rcvd * 8.0 / (100 * 1024 * 1024) << " Mbps"
       << std::endl;
       outfile << "Average Delay: " << averageDelay << "ms" << std::endl;
       outfile.close ();
