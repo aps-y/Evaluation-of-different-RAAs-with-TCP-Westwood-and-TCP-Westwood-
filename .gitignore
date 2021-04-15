@@ -3,5 +3,7 @@
 !twoWayFlowTest.cc
 !oneWayFlowTest.cc
 !runExperiments.cc
-!./ReadmeResults/**
-!./Results/**
+!ReadmeResults/
+!ReadmeResults/**
+!Results/
+!Results/**
