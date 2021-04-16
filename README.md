@@ -21,30 +21,30 @@
 
 ### Minstrel
    #### Cumulative Delay
-![TCPs Delay Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/RNG_Averages/4nodes_cdf/Delay/Minstrel.png)
+![TCPs Delay Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/4nodes_cdf/Delay/Minstrel.png)
    #### Cumulative Throughput
-![TCPs Throughput Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/RNG_Averages/4nodes_cdf/Throughput/Minstrel.png)
+![TCPs Throughput Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/4nodes_cdf/Throughput/Minstrel.png)
 
 ### Aarfcd
    #### Cumulative Delay
-![TCPs Delay Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/RNG_Averages/4nodes_cdf/Delay/Aarfcd.png)
+![TCPs Delay Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/4nodes_cdf/Delay/Aarfcd.png)
    #### Cumulative Throughput
-![TCPs Throughput Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/RNG_Averages/4nodes_cdf/Throughput/Aarfcd.png)
+![TCPs Throughput Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/4nodes_cdf/Throughput/Aarfcd.png)
 
 ### Aarf
    #### Cumulative Delay
-![TCPs Delay Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/RNG_Averages/4nodes_cdf/Delay/Aarf.png)
+![TCPs Delay Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/4nodes_cdf/Delay/Aarf.png)
    #### Cumulative Throughput
-![TCPs Throughput Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/RNG_Averages/4nodes_cdf/Throughput/Aarf.png)
+![TCPs Throughput Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/4nodes_cdf/Throughput/Aarf.png)
 
 ### Arf
    #### Cumulative Delay
-![TCPs Delay Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/RNG_Averages/4nodes_cdf/Delay/Arf.png)
+![TCPs Delay Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/4nodes_cdf/Delay/Arf.png)
    #### Cumulative Throughput
-![TCPs Throughput Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/RNG_Averages/4nodes_cdf/Throughput/Arf.png)
+![TCPs Throughput Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/4nodes_cdf/Throughput/Arf.png)
 
 ### Onoe
    #### Cumulative Delay
-![TCPs Delay Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/RNG_Averages/4nodes_cdf/Delay/Onoe.png)
+![TCPs Delay Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/4nodes_cdf/Delay/Onoe.png)
    #### Cumulative Throughput
-![TCPs Throughput Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/RNG_Averages/4nodes_cdf/Throughput/Onoe.png)
+![TCPs Throughput Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/4nodes_cdf/Throughput/Onoe.png)
