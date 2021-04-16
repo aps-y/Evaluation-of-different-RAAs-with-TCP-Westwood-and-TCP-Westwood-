@@ -15,35 +15,36 @@
 2. **graphPlotter.py** - script to generate graphs of throughput and delay from results obtained 
     * The testbed evaluates avg Throughput and avg Delay for the whole network in intervals of 0.2 seconds the graphPlotter script uses the data to plot graphs
 3. **runExperiments.sh** - shell script to run tests by varying number of wifi nodes from 2 to 7 and using the above mentioned RAAs along with TCP Westwood and TCP Westwood+ then plot the graphs for the results obtained.
+4. **create_RNG_graphs.ipynb**-ipython notebook to generate graphs of cummulative throughput and cummulative delay from the results obtained
 
 ## Output for 4 wifi nodes on each side of the p2p link and 2 Westwood/Westwood+ flows and 2 TCP NewReno flows in opposite direction
 
 ### Minstrel
-   #### Delay
-![TCPs Delay Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/RNG_Averages/4nodes/Delay/Minstrel.png)
-   #### Throughput
-![TCPs Throughput Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/RNG_Averages/4nodes/Throughput/Minstrel.png)
+   #### Cumulative Delay
+![TCPs Delay Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/RNG_Averages/4nodes_cdf/Delay/Minstrel.png)
+   #### Cumulative Throughput
+![TCPs Throughput Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/RNG_Averages/4nodes_cdf/Throughput/Minstrel.png)
 
 ### Aarfcd
-   #### Delay
-![TCPs Delay Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/RNG_Averages/4nodes/Delay/Aarfcd.png)
-   #### Throughput
-![TCPs Throughput Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/RNG_Averages/4nodes/Throughput/Aarfcd.png)
+   #### Cumulative Delay
+![TCPs Delay Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/RNG_Averages/4nodes_cdf/Delay/Aarfcd.png)
+   #### Cumulative Throughput
+![TCPs Throughput Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/RNG_Averages/4nodes_cdf/Throughput/Aarfcd.png)
 
 ### Aarf
-   #### Delay
-![TCPs Delay Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/RNG_Averages/4nodes/Delay/Aarf.png)
-   #### Throughput
-![TCPs Throughput Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/RNG_Averages/4nodes/Throughput/Aarf.png)
+   #### Cumulative Delay
+![TCPs Delay Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/RNG_Averages/4nodes_cdf/Delay/Aarf.png)
+   #### Cumulative Throughput
+![TCPs Throughput Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/RNG_Averages/4nodes_cdf/Throughput/Aarf.png)
 
 ### Arf
-   #### Delay
-![TCPs Delay Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/RNG_Averages/4nodes/Delay/Arf.png)
-   #### Throughput
-![TCPs Throughput Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/RNG_Averages/4nodes/Throughput/Arf.png)
+   #### Cumulative Delay
+![TCPs Delay Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/RNG_Averages/4nodes_cdf/Delay/Arf.png)
+   #### Cumulative Throughput
+![TCPs Throughput Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/RNG_Averages/4nodes_cdf/Throughput/Arf.png)
 
 ### Onoe
-   #### Delay
-![TCPs Delay Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/RNG_Averages/4nodes/Delay/Onoe.png)
-   #### Throughput
-![TCPs Throughput Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/RNG_Averages/4nodes/Throughput/Onoe.png)
+   #### Cumulative Delay
+![TCPs Delay Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/RNG_Averages/4nodes_cdf/Delay/Onoe.png)
+   #### Cumulative Throughput
+![TCPs Throughput Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/RNG_Averages/4nodes_cdf/Throughput/Onoe.png)
