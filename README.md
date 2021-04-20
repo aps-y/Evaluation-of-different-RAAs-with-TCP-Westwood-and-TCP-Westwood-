@@ -20,33 +20,33 @@
 ## Output for 4 wifi nodes on each side of the p2p link and 2 Westwood/Westwood+ flows and 2 TCP NewReno flows in opposite direction
 
 ### Minstrel
-   #### Cumulative Delay
+   #### CDF of Delay
 ![TCPs Delay Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/4nodes_cdf/Delay/Minstrel.png)
-   #### Cumulative Throughput
+   #### CDF of Throughput
 ![TCPs Throughput Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/4nodes_cdf/Throughput/Minstrel.png)
 
 ### Aarfcd
-   #### Cumulative Delay
+   #### CDF of Delay
 ![TCPs Delay Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/4nodes_cdf/Delay/Aarfcd.png)
-   #### Cumulative Throughput
+   #### CDF of Throughput
 ![TCPs Throughput Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/4nodes_cdf/Throughput/Aarfcd.png)
 
 ### Aarf
-   #### Cumulative Delay
+   #### CDF of Delay
 ![TCPs Delay Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/4nodes_cdf/Delay/Aarf.png)
-   #### Cumulative Throughput
+   #### CDF of Throughput
 ![TCPs Throughput Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/4nodes_cdf/Throughput/Aarf.png)
 
 ### Arf
-   #### Cumulative Delay
+   #### CDF of Delay
 ![TCPs Delay Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/4nodes_cdf/Delay/Arf.png)
-   #### Cumulative Throughput
+   #### CDF of Throughput
 ![TCPs Throughput Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/4nodes_cdf/Throughput/Arf.png)
 
 ### Onoe
-   #### Cumulative Delay
+   #### CDF of Delay
 ![TCPs Delay Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/4nodes_cdf/Delay/Onoe.png)
-   #### Cumulative Throughput
+   #### CDF of Throughput
 ![TCPs Throughput Comparison Minstrel](https://github.com/aps-y/Evaluation-of-different-RAAs-with-TCP-Westwood-and-TCP-Westwood-/blob/main/ReadmeResults/4nodes_cdf/Throughput/Onoe.png)
 
 ## Throughput->Time and Delay->Time graphs
